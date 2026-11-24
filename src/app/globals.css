@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *, .dark-theme, .dark-theme *));
+
+@theme {
+  --color-brand-500: #0b9c33;
+  --color-brand-600: #097f29;
+  --color-brand-700: #065c1d;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #a1a1aa transparent;
+  }
+
+  html.dark {
+    scrollbar-color: #3f3f46 transparent;
+  }
+
+  body {
+    @apply bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased transition-colors duration-150;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #a1a1aa transparent;
+  }
+
+  html.dark * {
+    scrollbar-color: #3f3f46 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #a1a1aa;
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #0b9c33;
+  }
+
+  html.dark *::-webkit-scrollbar-thumb {
+    background-color: #3f3f46;
+  }
+
+  html.dark *::-webkit-scrollbar-thumb:hover {
+    background-color: #0b9c33;
+  }
+}
